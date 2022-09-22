@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="site.metacoding.baseball.domain.teams.TeamsDao">
+
+	<insert id="insert">
+		INSERT INTO teams(id, stadiumId, TEAMNAME, createdAt)
+		VALUES(users_seq.nextval, #{stadiumId}, #{TEAMNAME}, TIMESTAMP)
+	</insert>
+	
+	<select id="findAll" resultType="site.metacoding.baseball.domain.teams.Teams">
+		SELECT * FROM teams ORDER BY id DESC
+	</select>
+
+	<select id="findById" resultType="site.metacoding.baseball.domain.teams.Teams">
+		SELECT * FROM teams WHERE id = #{id}
+	</select>
+	
+	<update id="update">
+		UPDATE teams SET TEAMNAME=#{TEAMNAME}
+		WHERE id = #{id}
+	</update>
+	
+	<delete id="deleteById">
+		DELETE FROM teams WHERE id = #{id}
+	</delete>
+
+</mapper>
