@@ -2,11 +2,11 @@
 
 <%@ include file="../layout/header.jsp"%>
 
-<div class="container">
-	<br /> <br /><br>
-	<input id="id" type="hidden" value="${id}" />
+<div class="container" style="height: 70%">
+	<br /> <br />
+	<br> <input id="id" type="hidden" value="${id}" />
 	<div class="d-flex justify-content-center">
-		<h2 style="font-weight: bold">경기장 목록</h2>
+		<h2 style="font-weight: bold">팀 목록</h2>
 	</div>
 
 	<br /> <br />
@@ -14,18 +14,20 @@
 		<thead>
 			<tr>
 				<th>번호</th>
-				<th>홈구장</th>
-				<th>경기일</th>
+				<th>경기장</th>
+				<th>팀이름</th>
+				<th>창단일</th>
 				<th>삭제</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="stadiums" items="${stadiumList}">
+			<c:forEach var="teams" items="${teamList}">
 				<tr>
-					<td>${stadiums.id}</td>
-					<td>${stadiums.name}</td>
-					<td>${stadiums.createDate}</td>
-					<td><button onclick="deleteById(${stadiums.id})" class="btn btn-danger delete_btn" style="font-size:15px;
+					<td>${teams.id}</td>
+					<td>${teams.stadiumId}</td>
+					<td>${teams.name}</td>
+					<td>${teams.createDate}</td>
+					<td><button onclick="deleteById(${teams.id})" class="btn btn-danger delete_btn" style="font-size:15px;
 	padding:2px 8px;">삭제</button></td>
 				</tr>
 			</c:forEach>
@@ -36,25 +38,22 @@
 	</div>
 	
 	<script>
-
-		function deleteById(id) {
-			$.ajax("/stadiums/"+id,{
+		function deleteById(id) {		
+			$.ajax("/teams/"+id,{
 				type: "DELETE",
 				dataType: "json" // 응답 데이터
 			}).done((res) => {
 				if (res.code == 1) {
-					alert("경기장 삭제 성공");
-					location.href="/stadiums";
+					alert("팀 삭제 성공");
+					location.reload();
 				} else {
-					alert("경기장 삭제 실패");
+					alert("팀삭제 실패");
 				}
 			});
 		}
 
 
-		
 </script>
-
 
 </div>
 

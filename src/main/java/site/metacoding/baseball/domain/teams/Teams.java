@@ -13,6 +13,11 @@ public class Teams {
 
 	private Integer id;
 	private Integer stadiumId;
-	private String teamname;
-	private Timestamp createdAt;
+	private String name;
+	private Timestamp createDate;
+
+	public Teams(Integer stadiumId, String name) {
+		this.stadiumId = stadiumId;
+		this.name = name;
+	}
 }

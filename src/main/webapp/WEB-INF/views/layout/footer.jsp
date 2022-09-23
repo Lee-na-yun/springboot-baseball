@@ -5,7 +5,7 @@
 
 <br /><br /> <br />
 
-<div class="container bg-secondary text-dark text-center" style="max-width:100%; height:200px; padding-top:30px;">
+<div class="container bg-light text-dark text-center" style="max-width:100%; height:200px; padding-top:30px; position:fixed; bottom:0">
 <div class=" jumbotron text-center" style="margin-bottom: 0">
 	<p>Created by Cos</p>
 	<p>📞 010-2222-7777</p>

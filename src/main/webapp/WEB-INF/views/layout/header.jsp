@@ -27,10 +27,10 @@
 				<ul class="navbar-nav">
 							<li class="nav-item"><a class="nav-link" href="/">경기장 목록</a></li>
 							<li class="nav-item"><a class="nav-link" href="/insertForm">경기장 등록</a></li>
-							<li class="nav-item"><a class="nav-link" href="/">팀 목록</a></li>
-							<li class="nav-item"><a class="nav-link" href="/">팀 등록</a></li>
-							<li class="nav-item"><a class="nav-link" href="/">선수 목록</a></li>
-							<li class="nav-item"><a class="nav-link" href="/">선수 등록</a></li>
+							<li class="nav-item"><a class="nav-link" href="/teamList">팀 목록</a></li>
+							<li class="nav-item"><a class="nav-link" href="/teamSaveForm">팀 등록</a></li>
+							<li class="nav-item"><a class="nav-link" href="/playerList">선수 목록</a></li>
+							<li class="nav-item"><a class="nav-link" href="/playerSaveForm">선수 등록</a></li>
 							<li class="nav-item"><a class="nav-link" href="/">팀별 포지션 목록</a></li>
 							<li class="nav-item"><a class="nav-link" href="/">퇴출된 선수 목록</a></li>
 							<li class="nav-item"><a class="nav-link" href="/">퇴출 사유 등록</a></li>

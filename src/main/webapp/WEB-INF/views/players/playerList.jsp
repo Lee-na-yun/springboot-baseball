@@ -2,11 +2,11 @@
 
 <%@ include file="../layout/header.jsp"%>
 
-<div class="container">
-	<br /> <br /><br>
-	<input id="id" type="hidden" value="${id}" />
+<div class="container" style="height: 70%">
+	<br /> <br />
+	<br> <input id="id" type="hidden" value="${id}" />
 	<div class="d-flex justify-content-center">
-		<h2 style="font-weight: bold">경기장 목록</h2>
+		<h2 style="font-weight: bold">선수 목록</h2>
 	</div>
 
 	<br /> <br />
@@ -14,18 +14,23 @@
 		<thead>
 			<tr>
 				<th>번호</th>
-				<th>홈구장</th>
-				<th>경기일</th>
+				<th>팀이름</th>
+				<th>선수이름</th>
+				<th>포지션</th>
+				<th>등번호</th>
 				<th>삭제</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="stadiums" items="${stadiumList}">
+			<c:forEach var="players" items="${playerList}">
 				<tr>
-					<td>${stadiums.id}</td>
-					<td>${stadiums.name}</td>
-					<td>${stadiums.createDate}</td>
-					<td><button onclick="deleteById(${stadiums.id})" class="btn btn-danger delete_btn" style="font-size:15px;
+					<td>${players.id}</td>
+					<td>${players.teamId}</td>
+					<td>${players.name}</td>
+					<td>${players.position}</td>
+					<td>${players.playerNum}</td>
+					<td>${players.createDate}</td>
+					<td><button onclick="deleteById(${players.id})" class="btn btn-danger" style="font-size:15px;
 	padding:2px 8px;">삭제</button></td>
 				</tr>
 			</c:forEach>
@@ -36,25 +41,22 @@
 	</div>
 	
 	<script>
-
-		function deleteById(id) {
-			$.ajax("/stadiums/"+id,{
+		function deleteById(id) {		
+			$.ajax("/players/"+id,{
 				type: "DELETE",
 				dataType: "json" // 응답 데이터
 			}).done((res) => {
 				if (res.code == 1) {
-					alert("경기장 삭제 성공");
-					location.href="/stadiums";
+					alert("선수 삭제 성공");
+					location.reload();
 				} else {
-					alert("경기장 삭제 실패");
+					alert("선수 삭제 실패");
 				}
 			});
 		}
 
 
-		
 </script>
-
 
 </div>
 

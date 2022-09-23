@@ -10,10 +10,11 @@ import site.metacoding.baseball.domain.stadiums.Stadiums;
 public class InsertDto {
 
 	private String name;
-	
+
 	public Stadiums toEntity() {
 		Stadiums stadiums = new Stadiums(this.name);
 		return stadiums;
 	}
+	
 	
 }

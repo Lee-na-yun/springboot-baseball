@@ -5,12 +5,12 @@
 <mapper namespace="site.metacoding.baseball.domain.players.PlayersDao">
 
 	<insert id="insert">
-		INSERT INTO players(id, teamId, USERNAME, position, playerNum, createdAt)
-		VALUES(users_seq.nextval, #{teamId}, #{USERNAME}, #{position}, #{playerNum}, TIMESTAMP)
+		INSERT INTO players(teamId, name, position, playerNum, createDate)
+		VALUES(#{teamId}, #{name}, #{position}, #{playerNum}, now())
 	</insert>
 	
 	<select id="findAll" resultType="site.metacoding.baseball.domain.players.Players">
-		SELECT * FROM players ORDER BY id DESC
+		SELECT * FROM players ORDER BY id ASC
 	</select>
 
 	<select id="findById" resultType="site.metacoding.baseball.domain.players.Players">
@@ -18,7 +18,7 @@
 	</select>
 	
 	<update id="update">
-		UPDATE players SET USERNAME=#{USERNAME}, position=#{position}, playerNum=#{playerNum}
+		UPDATE players SET name=#{name}, position=#{position}, playerNum=#{playerNum}
 		WHERE id = #{id}
 	</update>
 	

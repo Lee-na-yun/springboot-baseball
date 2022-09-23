@@ -15,10 +15,9 @@ public class Stadiums {
 
 	private Integer id;
 	private String name;
-	private Timestamp createdAt;
+	private Timestamp createDate;
 	
 	public Stadiums(String name) {
 		this.name = name;
-
 	}
 }

@@ -5,20 +5,25 @@
 <mapper namespace="site.metacoding.baseball.domain.teams.TeamsDao">
 
 	<insert id="insert">
-		INSERT INTO teams(id, stadiumId, TEAMNAME, createdAt)
-		VALUES(users_seq.nextval, #{stadiumId}, #{TEAMNAME}, TIMESTAMP)
+		INSERT INTO teams(name, stadiumId, CreateDate)
+		VALUE(#{name},#{stadiumId} , NOW());
 	</insert>
 	
 	<select id="findAll" resultType="site.metacoding.baseball.domain.teams.Teams">
-		SELECT * FROM teams ORDER BY id DESC
+		SELECT * FROM teams ORDER BY id ASC
 	</select>
 
+	<select id="findByName"
+		resultType="site.metacoding.baseball.domain.teams.Teams">
+		SELECT * FROM stadiums WHERE name = #{name}
+	</select>
+	
 	<select id="findById" resultType="site.metacoding.baseball.domain.teams.Teams">
 		SELECT * FROM teams WHERE id = #{id}
 	</select>
 	
 	<update id="update">
-		UPDATE teams SET TEAMNAME=#{TEAMNAME}
+		UPDATE teams SET name=#{name}
 		WHERE id = #{id}
 	</update>
 	

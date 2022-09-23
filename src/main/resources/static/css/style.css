@@ -1,0 +1,45 @@
+html,body{
+	height:100vh;
+	
+}
+
+#checkdelete{
+	width:18px;
+	height:18px;
+}
+
+
+
+#teamName{
+	display:inline-block;
+}
+
+#btnTeamInsert{
+	margin-top:10px;
+	width:100%;
+	height:38px;
+}
+#btnPlayerInsert{
+	margin-top:10px;
+	width:100%;
+	height:38px;
+}
+
+.stadiumSelect{
+	display:block;
+	padding-bottom:10px;
+}
+.stadiumSelect label{
+	margin-right:10px;
+}
+.stadiumSelect select{
+	border:1px solid #ced4da;
+	border-radius:.375rem
+
+}
+.stadiumSelect input{
+	width:283px;
+	height:34px;
+	border:1px solid #ced4da;
+	border-radius:.375rem
+}

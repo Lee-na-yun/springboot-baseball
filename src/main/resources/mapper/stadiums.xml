@@ -10,7 +10,7 @@
 	</insert>
 	
 	<select id="findAll" resultType="site.metacoding.baseball.domain.stadiums.Stadiums">
-		SELECT * FROM stadiums ORDER BY id DESC
+		SELECT id, name, createDate, ROW_NUMBER() OVER (ORDER BY id ASC) as no FROM stadiums
 	</select>
 
 	<select id="findById" resultType="site.metacoding.baseball.domain.stadiums.Stadiums">
