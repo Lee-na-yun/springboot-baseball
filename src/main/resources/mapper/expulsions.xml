@@ -6,13 +6,17 @@
 
 
 	<insert id="insert">
-		INSERT INTO expulsions(teamname, name, reason, createDate)
-		VALUES(#{teamname}, #{name}, #{reason}, now())
+		INSERT INTO expulsions(playerId, name, reason, createDate)
+		VALUES(#{playerId}, #{name}, #{reason}, now())
 	</insert>
 
 	<select id="findAll"
 		resultType="site.metacoding.baseball.domain.expulsions.Expulsions">
-		SELECT * FROM expulsions ORDER BY id ASC
+		SELECT ROW_NUMBER() over (order BY p.id ASC) AS no,
+		(SELECT NAME FROM teams t WHERE p.teamId=t.id) teamname, p.name, p.position,
+		if(e.reason IS NULL, "", e.reason) reason, p.createDate
+		FROM players p LEFT OUTER join expulsions e
+		on p.id = e.id;
 	</select>
 
 	

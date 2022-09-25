@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import site.metacoding.baseball.domain.expulsions.Expulsions;
 import site.metacoding.baseball.domain.expulsions.ExpulsionsDao;
 import site.metacoding.baseball.web.dto.request.expulsions.ExpulsionsDto;
+import site.metacoding.baseball.web.dto.response.expulsions.expulsionsListDto;
 
 
 @RequiredArgsConstructor
@@ -17,12 +18,15 @@ public class ExpulsionsService {
 	private final ExpulsionsDao expulsionsDao;
 	
 	public void 퇴출선수등록(ExpulsionsDto expulsionsDto) {	
-
+		Expulsions expulsions = expulsionsDto.toEntity();
+		expulsionsDao.insert(expulsionsDto);
 	}
 	
-	public List<Expulsions> 퇴출선수목록보기() {	
-		List<Expulsions> expulsionsList = expulsionsDao.findAll();
+	
+	public List<expulsionsListDto> 퇴출선수목록보기() {	
+		List<expulsionsListDto> expulsionsList = expulsionsDao.findAll();
 		return expulsionsList;
 	}
+	
 
 }

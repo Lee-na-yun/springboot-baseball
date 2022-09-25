@@ -57,11 +57,14 @@ CREATE TABLE players(
 
 #퇴출
 CREATE TABLE expulsions(
-	id int auto_increment primary key,
+    id int auto_increment primary key,
     reason varchar(100) unique not null,
     playerId int,
+    name varchar(100) unique not NULL,
+    position varchar(100) not null,
     createDate timestamp
 ) engine=InnoDB default charset=UTF8;
+
 ```
 
 ### 더미데이터 추가

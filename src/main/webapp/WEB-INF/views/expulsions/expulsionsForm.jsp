@@ -29,11 +29,11 @@
       	</div>
       	<div class="stadiumSelect" >
 		    <label for="reason">퇴출 사유  </label>
-	        <input id="reason"  type="text" placeholder="퇴출사유를 적어주세요." maxlength="20" name="positionName" required>	   
+	        <input id="reason"  type="text" placeholder="퇴출사유를 적어주세요." maxlength="20" name="expulsionsReason" required>	   
       	</div>
 
 
-      <button id="btnExpulsionsInsert" class="btn btn-dark"  type="button"  >등록</button>
+      <button id="btnExpulsionsInsert" class="btn btn-dark"  type="button"  style="width:100%;">등록</button>
 </form>	
 
 
@@ -47,12 +47,12 @@ $("#btnExpulsionsInsert").click(() => {
 });
 	function expulsionsSave(){
 		let data = {
-				teamId: $("#teamList").val(),
+				playerId: $("#teamList").val(),
 				name: $("#playerList").val(),
 				reason: $("#reason").val()
 		};
-		
-		$.ajax("/explusionsForm", {
+
+		$.ajax("/expulsionsForm", {
 			type: "POST",
 			dataType: "json", 
 			data: JSON.stringify(data), 
@@ -62,7 +62,7 @@ $("#btnExpulsionsInsert").click(() => {
 		}).done((res) => {
 			if (res.code == 1) {
 				alert("퇴출선수 등록 성공");
-				location.href = "/explusionsList";
+				location.href = "/expulsionsList";
 			} else {
 				alert("퇴출선수 등록 실패");
 			}

@@ -14,16 +14,12 @@ html,body{
 	display:inline-block;
 }
 
-#btnTeamInsert{
+#btnTeamInsert, #btnPlayerInsert, #btnExpulsionsInsert{
 	margin-top:10px;
 	width:100%;
 	height:38px;
 }
-#btnPlayerInsert{
-	margin-top:10px;
-	width:100%;
-	height:38px;
-}
+
 
 .stadiumSelect{
 	display:block;
