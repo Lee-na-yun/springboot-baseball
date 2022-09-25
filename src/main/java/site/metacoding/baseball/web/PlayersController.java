@@ -19,6 +19,7 @@ import site.metacoding.baseball.service.TeamsService;
 import site.metacoding.baseball.web.dto.request.players.PlayerSaveDto;
 import site.metacoding.baseball.web.dto.response.CMRespDto;
 import site.metacoding.baseball.web.dto.response.players.PlayerListDto;
+import site.metacoding.baseball.web.dto.response.players.PlayerPositionGroup;
 
 @RequiredArgsConstructor
 @Controller
@@ -27,6 +28,26 @@ public class PlayersController {
 	private final PlayersService playersService;
 	private final PlayersDao playersDao;
 	private final TeamsService teamsService;
+	
+	@GetMapping("/playerPositonList")
+	public String getGroupList(Model model) {
+		playersService.포지션별선수목록보기();
+		List<PlayerPositionGroup> playerList2 = playersDao.findPlayerforPosition();
+		List<PlayerListDto> playerList = playersService.선수목록보기();
+		List<Teams> teamList = teamsService.팀목록보기();
+		model.addAttribute("playerList2", playerList2);
+		model.addAttribute("playerList", playerList);
+		model.addAttribute("teamList", teamList);
+		return "players/playerPositonList";
+	}
+	
+	//@GetMapping("/playerPositonList")
+	//public String getPlayerPositonList(Model model){
+	//	playersService.포지션별선수목록보기();
+	//	List<PlayerPositionGroup> playerList = playersDao.findPlayerforPosition();
+	//	model.addAttribute("playerList", playerList);
+	//	return "players/playerPositonList";
+	//}
 	
 	
 	@DeleteMapping("/players/{id}")

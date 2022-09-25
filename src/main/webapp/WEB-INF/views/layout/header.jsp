@@ -31,9 +31,9 @@
 							<li class="nav-item"><a class="nav-link" href="/teamSaveForm">팀 등록</a></li>
 							<li class="nav-item"><a class="nav-link" href="/playerList">선수 목록</a></li>
 							<li class="nav-item"><a class="nav-link" href="/playerSaveForm">선수 등록</a></li>
-							<li class="nav-item"><a class="nav-link" href="/">팀별 포지션 목록</a></li>
-							<li class="nav-item"><a class="nav-link" href="/">퇴출된 선수 목록</a></li>
-							<li class="nav-item"><a class="nav-link" href="/">퇴출 사유 등록</a></li>
+							<li class="nav-item"><a class="nav-link" href="/playerPositonList">팀별 포지션 목록</a></li>
+							<li class="nav-item"><a class="nav-link" href="/expulsionsList">퇴출된 선수 목록</a></li>
+							<li class="nav-item"><a class="nav-link" href="/expulsionsForm">퇴출 사유 등록</a></li>
 				</ul>
 			</div>
 		</div>

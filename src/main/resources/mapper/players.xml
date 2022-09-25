@@ -2,26 +2,41 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="site.metacoding.baseball.domain.players.PlayersDao">
+<mapper
+	namespace="site.metacoding.baseball.domain.players.PlayersDao">
+
+	<select id="findPlayerforPosition" resultType="site.metacoding.baseball.web.dto.response.players.PlayerPositionGroup">
+		SELECT position,
+		MAX(if(teamId=1, NAME, "")) group1,
+		MAX(if(teamId=2, NAME, "")) group2,
+		MAX(if(teamId=3, NAME, "")) group3
+		FROM players
+		GROUP BY position
+	</select>
 
 	<insert id="insert">
-		INSERT INTO players(teamId, name, position, playerNum, createDate)
-		VALUES(#{teamId}, #{name}, #{position}, #{playerNum}, now())
+		INSERT INTO players(teamId, name, position,
+		playerNum, createDate)
+		VALUES(#{teamId}, #{name}, #{position},
+		#{playerNum}, now())
 	</insert>
-	
-	<select id="findAll" resultType="site.metacoding.baseball.domain.players.Players">
+
+	<select id="findAll"
+		resultType="site.metacoding.baseball.domain.players.Players">
 		SELECT * FROM players ORDER BY id ASC
 	</select>
 
-	<select id="findById" resultType="site.metacoding.baseball.domain.players.Players">
+	<select id="findById"
+		resultType="site.metacoding.baseball.domain.players.Players">
 		SELECT * FROM players WHERE id = #{id}
 	</select>
-	
+
 	<update id="update">
-		UPDATE players SET name=#{name}, position=#{position}, playerNum=#{playerNum}
+		UPDATE players SET name=#{name},
+		position=#{position}, playerNum=#{playerNum}
 		WHERE id = #{id}
 	</update>
-	
+
 	<delete id="deleteById">
 		DELETE FROM players WHERE id = #{id}
 	</delete>

@@ -24,4 +24,6 @@ public class Players {
 		this.position = position;
 		this.playerNum = playerNum;
 	}
+	
+
 }

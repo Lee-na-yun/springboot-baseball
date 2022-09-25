@@ -4,6 +4,7 @@ import java.util.List;
 
 import site.metacoding.baseball.web.dto.request.players.PlayerSaveDto;
 import site.metacoding.baseball.web.dto.response.players.PlayerListDto;
+import site.metacoding.baseball.web.dto.response.players.PlayerPositionGroup;
 
 public interface PlayersDao {
 
@@ -12,4 +13,5 @@ public interface PlayersDao {
 	public Players findById(Integer id);
 	public void update(Players Players);
 	public void deleteById(Integer id);
+	public List<PlayerPositionGroup> findPlayerforPosition();
 }

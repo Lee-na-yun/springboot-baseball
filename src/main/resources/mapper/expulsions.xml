@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="site.metacoding.baseball.domain.expulsions.ExpulsionsDao">
+
+
+	<insert id="insert">
+		INSERT INTO expulsions(teamname, name, reason, createDate)
+		VALUES(#{teamname}, #{name}, #{reason}, now())
+	</insert>
+
+	<select id="findAll"
+		resultType="site.metacoding.baseball.domain.expulsions.Expulsions">
+		SELECT * FROM expulsions ORDER BY id ASC
+	</select>
+
+	
+
+</mapper>
